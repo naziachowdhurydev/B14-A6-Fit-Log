@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import logo from "../../../public/assets/logo.png";
 
 const navItems = [
   { label: "Workouts", active: true },
@@ -15,7 +14,7 @@ const Navbar = () => {
           {/* LEFT - LOGO */}
           <div className="flex shrink-0 items-center gap-3">
             <Image
-              src={logo}
+              src="/assets/logo.png"
               alt="FitLog logo"
               width={30}
               height={30}
