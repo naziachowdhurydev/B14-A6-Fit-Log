@@ -1,12 +1,11 @@
-import Navbar from "@/components/shared/Navbar";
-import Footer from "@/components/Footer";
+import Banner from "@/components/home-page/Banner";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-[#070b10] text-white">
-      <Navbar />
-      <div className="flex-1" />
-      <Footer />
+    <main className="min-h-screen bg-[#050b11] px-3 py-6 sm:px-5 md:px-8 lg:px-10">
+      <div className="mx-auto ">
+        <Banner />
+      </div>
     </main>
   );
 }
