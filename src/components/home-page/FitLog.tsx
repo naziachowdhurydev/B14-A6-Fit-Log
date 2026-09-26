@@ -59,7 +59,7 @@ const FitLog = () => {
   }, [fitData, searchTerm]);
 
   return (
-    <section className="container mx-auto my-20 px-4">
+    <section className="container mx-auto my-9 px-4">
       <div className="mb-7 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <h2 className="text-3xl font-bold tracking-tight text-white">
