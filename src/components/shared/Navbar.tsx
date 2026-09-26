@@ -4,14 +4,27 @@ import { FitLogContext } from "../../context/FitLog.Provider";
 import React, { useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-const navItems = [
-  { label: "Workouts", active: true, href: "/" },
-  { label: "My Plan", active: false, href: "/myPlan" },
-];
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const { plan, save } = useContext(FitLogContext);
+  const pathname = usePathname();
+
+  const navItems = [
+    {
+      label: "Workouts",
+      href: "/",
+      active:
+        pathname === "/" ||
+        pathname.startsWith("/fitLogs") ||
+        pathname.startsWith("/workouts"),
+    },
+    {
+      label: "My Plan",
+      href: "/myPlan",
+      active: pathname === "/myPlan" || pathname.startsWith("/myPlan/"),
+    },
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 backdrop-blur-3xl">
