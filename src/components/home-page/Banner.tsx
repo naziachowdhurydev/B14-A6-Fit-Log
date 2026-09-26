@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Banner = () => {
   return (
-    <section className="container mx-auto w-full max-w-350 overflow-hidden rounded-[30px] bg-[#0c1520] px-5 py-8 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] sm:px-8 md:px-10 lg:px-14 xl:px-16">
+    <section className="container mx-auto w-full overflow-hidden rounded-[30px] bg-[#0c1520] px-5 py-8 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] sm:px-8 md:px-10 lg:px-14 xl:px-16">
       <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="order-2 lg:order-1">
           <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.28em] text-[#d5ff58] sm:text-xs">

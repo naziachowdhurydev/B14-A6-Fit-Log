@@ -9,7 +9,7 @@ const navItems = [
 const Navbar = () => {
   return (
     <header className="container mx-auto ">
-      <div className="mx-auto w-full max-w-360 px-3 sm:px-5 lg:px-8">
+      <div className="mx-auto w-full px-3 sm:px-5 ">
         <nav className="relative flex min-h-20 items-center justify-between">
           {/* LEFT - LOGO */}
           <div className="flex shrink-0 items-center gap-3">
