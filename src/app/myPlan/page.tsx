@@ -15,11 +15,29 @@ const MyPlan = () => {
   const [sortBy, setSortBy] = useState<"duration" | "calories" | "rating">(
     "duration",
   );
+  const [searchQuery, setSearchQuery] = useState("");
 
   const currentWorkouts = activeTab === "saved" ? save : plan;
 
+  const searchedWorkouts = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+
+    if (!query) {
+      return currentWorkouts;
+    }
+
+    return currentWorkouts.filter((item) => {
+      const matchesName = item.name.toLowerCase().includes(query);
+      const matchesTag = item.muscleGroups.some((tag) =>
+        tag.toLowerCase().includes(query),
+      );
+
+      return matchesName || matchesTag;
+    });
+  }, [currentWorkouts, searchQuery]);
+
   const sortedWorkouts = useMemo(() => {
-    const items = [...currentWorkouts];
+    const items = [...searchedWorkouts];
 
     if (sortBy === "duration") {
       return items.sort((a, b) => b.duration - a.duration);
@@ -30,7 +48,7 @@ const MyPlan = () => {
     }
 
     return items.sort((a, b) => b.rating - a.rating);
-  }, [currentWorkouts, sortBy]);
+  }, [searchedWorkouts, sortBy]);
 
   const handleViewDetails = (item: IFitData) => {
     toast.info(`Viewing ${item.name}`);
@@ -109,6 +127,19 @@ const MyPlan = () => {
         </div>
 
         <div className="mt-8">
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-slate-300">
+              Search workouts
+            </label>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+              placeholder="Search by workout or tag"
+              className="mt-2 w-full rounded-full border border-white/10 bg-[#0b1116] px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-400 focus:border-[#d5ff58]"
+            />
+          </div>
+
           <div className="flex flex-col gap-4 border-b border-white/10 pb-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex gap-2 rounded-full border border-white/10 bg-transparent p-1">
               <Link
@@ -187,6 +218,10 @@ const MyPlan = () => {
               >
                 Go to workouts
               </Link>
+            </div>
+          ) : sortedWorkouts.length === 0 ? (
+            <div className="mt-8 rounded-3xl border border-dashed border-white/10 bg-[#081018] px-6 py-10 text-center text-slate-300">
+              No workouts match “{searchQuery}”.
             </div>
           ) : (
             <div className="mt-8 space-y-4">

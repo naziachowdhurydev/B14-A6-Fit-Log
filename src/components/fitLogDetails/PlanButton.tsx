@@ -10,17 +10,23 @@ type PlanButtonProps = {
 
 const PlanButton = ({ fit }: PlanButtonProps) => {
   const { plan, setPlan } = useContext(FitLogContext);
+  const alreadyAdded = plan.some((item) => item.id === fit.id);
+  const isPlanFull = plan.length >= 5;
 
   const handlePlan = () => {
-    const alreadyAdded = plan.some((item) => item.id === fit.id);
-
     if (alreadyAdded) {
       toast.info(`${fit.name} is already in your plan`);
       return;
     }
 
-    setPlan((prevPlan) => [...prevPlan, fit]);
+    if (isPlanFull) {
+      toast.warning(
+        "Your today's plan is already full. Remove one to add another.",
+      );
+      return;
+    }
 
+    setPlan((prevPlan) => [...prevPlan, fit]);
     toast.success(`${fit.name} added to today’s plan`);
   };
 
@@ -28,7 +34,8 @@ const PlanButton = ({ fit }: PlanButtonProps) => {
     <button
       type="button"
       onClick={handlePlan}
-      className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#d5ff58] bg-[#d5ff58] px-4 py-3 text-sm font-extrabold uppercase tracking-[0.08em] text-[#081018] shadow-[0_0_24px_rgba(213,255,88,0.24)] transition-transform duration-200 hover:scale-[1.01]"
+      disabled={alreadyAdded || isPlanFull}
+      className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#d5ff58] bg-[#d5ff58] px-4 py-3 text-sm font-extrabold uppercase tracking-[0.08em] text-[#081018] shadow-[0_0_24px_rgba(213,255,88,0.24)] transition-transform duration-200 hover:scale-[1.01] disabled:cursor-not-allowed disabled:border-slate-700 disabled:bg-slate-700 disabled:text-slate-400 disabled:shadow-none disabled:hover:scale-100"
     >
       <svg
         viewBox="0 0 24 24"
@@ -44,7 +51,11 @@ const PlanButton = ({ fit }: PlanButtonProps) => {
           strokeLinejoin="round"
         />
       </svg>
-      Add to today&apos;s plan
+      {alreadyAdded
+        ? "In your plan"
+        : isPlanFull
+          ? "Plan full"
+          : "Add to today&apos;s plan"}
     </button>
   );
 };
