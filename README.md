@@ -55,32 +55,23 @@ Technologies Used
 
 Features
 
-1. Workout Library
-   Browse different exercises covering various muscle groups.
-
-2. Workout Detail
+1. Workout Detail
    View equipment, difficulty, sets, reps, duration, calories, rating, and instructions for each workout.
 
-3. Dynamic Routing
-   Each workout has its own details page using `/fitLogs/[id]`.
-
-4. Save for Later  
+2. Save for Later  
    Save workouts and access them later from the saved section.
 
-5. Daily Workout Plan
+3. Daily Workout Plan
    Add exercises to a personal workout plan.
 
-6. Mark Workout as Done
+4. Mark Workout as Done
    Mark planned workouts as completed and remove them from the current plan.
 
-7. Duplicate Prevention  
-   Prevent the same workout from being added to the saved list or workout plan more than once.
-
-8. Toast Notifications
+5. Toast Notifications
    Show notifications when workouts are saved, added to the plan, completed, or removed.
 
-9. Responsive Design
+6. Responsive Design
    The layout works across mobile, tablet, and desktop screen sizes.
 
-10. Reusable Components
+7. Reusable Components
     The project is divided into reusable components such as workout cards, navbar, buttons, and workout details sections.
