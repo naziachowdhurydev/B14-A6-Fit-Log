@@ -1,8 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../components/shared/Navbar";
 import Footer from "../components/shared/Footer";
 import FitLogProvider from "../context/FitLog.Provider.tsx";
+import { ToastContainer } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +33,15 @@ export default function RootLayout({ children }) {
           <Navbar />
           {children}
           <Footer />
+          <ToastContainer
+            position="top-right"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            pauseOnHover
+            theme="dark"
+          />
         </FitLogProvider>
       </body>
     </html>

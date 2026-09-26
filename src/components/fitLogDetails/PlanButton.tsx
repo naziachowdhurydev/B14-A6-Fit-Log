@@ -1,6 +1,7 @@
 "use client";
 import { IFitData } from "@/types/fitLog.type";
 import React, { useContext } from "react";
+import { toast } from "react-toastify";
 import { FitLogContext } from "../../context/FitLog.Provider";
 
 type PlanButtonProps = {
@@ -8,20 +9,25 @@ type PlanButtonProps = {
 };
 
 const PlanButton = ({ fit }: PlanButtonProps) => {
+  const { plan, setPlan } = useContext(FitLogContext);
+
   const handlePlan = () => {
-    console.log("handle plan ", fit);
+    const alreadyAdded = plan.some((item) => item.id === fit.id);
+
+    if (alreadyAdded) {
+      toast.info(`${fit.name} is already in your plan`);
+      return;
+    }
+
+    setPlan((prevPlan) => [...prevPlan, fit]);
+
+    toast.success(`${fit.name} added to today’s plan`);
   };
 
-  const fitLogContext = useContext(FitLogContext) as {
-    plan: IFitData[];
-    setPlan: React.Dispatch<React.SetStateAction<IFitData[]>>;
-  };
-  const { plan, setPlan } = fitLogContext;
-
-  setPlan((prevPlan) => [...prevPlan, fit]);
   return (
     <button
-      onClick={() => handlePlan()}
+      type="button"
+      onClick={handlePlan}
       className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#d5ff58] bg-[#d5ff58] px-4 py-3 text-sm font-extrabold uppercase tracking-[0.08em] text-[#081018] shadow-[0_0_24px_rgba(213,255,88,0.24)] transition-transform duration-200 hover:scale-[1.01]"
     >
       <svg

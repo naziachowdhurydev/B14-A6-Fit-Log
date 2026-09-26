@@ -1,4 +1,7 @@
-import React from "react";
+"use client";
+
+import { FitLogContext } from "../../context/FitLog.Provider";
+import React, { useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,11 +11,12 @@ const navItems = [
 ];
 
 const Navbar = () => {
+  const { plan, save } = useContext(FitLogContext);
+
   return (
-    <header className="container mx-auto  sticky z-10">
-      <div className="mx-auto w-full px-3 sm:px-5 ">
+    <header className="container sticky z-10 mx-auto">
+      <div className="mx-auto w-full px-3 sm:px-5">
         <nav className="relative flex min-h-20 items-center justify-between">
-          {/* LEFT - LOGO */}
           <Link href="/">
             <div className="flex shrink-0 items-center gap-3">
               <Image
@@ -26,25 +30,10 @@ const Navbar = () => {
               <span className="text-[15px] font-black uppercase tracking-[0.08em] text-[#d9f500]">
                 FITLOG
               </span>
-            </div>{" "}
+            </div>
           </Link>
 
-          {/* CENTER - NAVIGATION */}
-          <div
-            className="
-              absolute
-              left-1/2
-              top-1/2
-              hidden
-              -translate-x-1/2
-              -translate-y-1/2
-              items-center
-              gap-1
-              rounded-full
-              p-1
-              md:flex
-            "
-          >
+          <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full p-1 md:flex">
             {navItems.map((item) => (
               <Link
                 key={item.label}
@@ -62,32 +51,28 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* RIGHT - PLAN / SAVED */}
           <div className="hidden items-center gap-7 md:flex">
-            {/* Plan */}
-            <Link href="/myPlan">
+            <Link href="/myPlan?tab=plan">
               <div className="flex items-center gap-2 text-[13px] text-[#b5b7bb]">
                 <span>Plan</span>
 
                 <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#c8ff00] px-1 text-[11px] font-bold text-black">
-                  0
+                  {plan.length}
                 </span>
               </div>
             </Link>
 
-            {/* Saved */}
-            <Link href="/myPlan">
+            <Link href="/myPlan?tab=saved">
               <div className="flex items-center gap-2 text-[13px] text-[#b5b7bb]">
                 <span>Saved</span>
 
                 <span className="flex h-5 min-w-5 items-center justify-center rounded-full border border-[#30343a] px-1 text-[11px] text-[#9da1a7]">
-                  0
+                  {save.length}
                 </span>
               </div>
             </Link>
           </div>
 
-          {/* MOBILE MENU / TABS */}
           <div className="flex items-center gap-1 md:hidden">
             {navItems.map((item) => (
               <Link
