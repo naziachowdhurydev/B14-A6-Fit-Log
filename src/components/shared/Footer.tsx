@@ -16,12 +16,12 @@ const Footer = () => {
             />
           </div>
 
-          <span className="text-[13px] font-black uppercase tracking-[0.18em] text-[#d9f500]">
+          <span className="text-[16px] font-black uppercase tracking-[0.18em] text-[#d9f500]">
             FITLOG
           </span>
         </div>
 
-        <p className="text-right text-[11px] text-[#dfe5ee] sm:text-[12px]">
+        <p className="text-right text-[11px] text-[#dfe5ee] sm:text-[15px]">
           © 2026 FitLog — Workout Library. Train hard, log honest.
         </p>
       </div>

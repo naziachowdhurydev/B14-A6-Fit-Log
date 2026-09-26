@@ -14,11 +14,11 @@ const Navbar = () => {
   const { plan, save } = useContext(FitLogContext);
 
   return (
-    <header className="container sticky z-10 mx-auto">
-      <div className="mx-auto w-full px-3 sm:px-5">
-        <nav className="relative flex min-h-20 items-center justify-between">
-          <Link href="/">
-            <div className="flex shrink-0 items-center gap-3">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#05090d]/90 backdrop-blur-xl">
+      <div className="mx-auto max-w-360 px-3 sm:px-5 lg:px-8">
+        <nav className="relative flex min-h-20 items-center justify-between gap-3">
+          <Link href="/" className="flex shrink-0 items-center gap-3">
+            <div className="flex items-center gap-3">
               <Image
                 src="/assets/logo.png"
                 alt="FitLog logo"
@@ -33,7 +33,7 @@ const Navbar = () => {
             </div>
           </Link>
 
-          <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full p-1 md:flex">
+          <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full bg-[#0d1218] p-1 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] md:flex">
             {navItems.map((item) => (
               <Link
                 key={item.label}
