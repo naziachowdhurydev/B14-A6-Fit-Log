@@ -27,7 +27,7 @@ const FitLog = async () => {
 
       {/* Cards */}
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
-        {fitData.slice(0, 4).map((fit: IFitData, inx: number) => {
+        {fitData.map((fit: IFitData, inx: number) => {
           return <FitLogCard key={inx} fit={fit} />;
         })}
       </div>

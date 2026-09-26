@@ -3,13 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navItems = [
-  { label: "Workouts", active: true, href: "/fitLogs" },
+  { label: "Workouts", active: true, href: "/" },
   { label: "My Plan", active: false, href: "/myPlan" },
 ];
 
 const Navbar = () => {
   return (
-    <header className="container mx-auto ">
+    <header className="container mx-auto  sticky z-10">
       <div className="mx-auto w-full px-3 sm:px-5 ">
         <nav className="relative flex min-h-20 items-center justify-between">
           {/* LEFT - LOGO */}
@@ -65,22 +65,26 @@ const Navbar = () => {
           {/* RIGHT - PLAN / SAVED */}
           <div className="hidden items-center gap-7 md:flex">
             {/* Plan */}
-            <div className="flex items-center gap-2 text-[13px] text-[#b5b7bb]">
-              <span>Plan</span>
+            <Link href="/myPlan">
+              <div className="flex items-center gap-2 text-[13px] text-[#b5b7bb]">
+                <span>Plan</span>
 
-              <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#c8ff00] px-1 text-[11px] font-bold text-black">
-                0
-              </span>
-            </div>
+                <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#c8ff00] px-1 text-[11px] font-bold text-black">
+                  0
+                </span>
+              </div>
+            </Link>
 
             {/* Saved */}
-            <div className="flex items-center gap-2 text-[13px] text-[#b5b7bb]">
-              <span>Saved</span>
+            <Link href="/myPlan">
+              <div className="flex items-center gap-2 text-[13px] text-[#b5b7bb]">
+                <span>Saved</span>
 
-              <span className="flex h-5 min-w-5 items-center justify-center rounded-full border border-[#30343a] px-1 text-[11px] text-[#9da1a7]">
-                0
-              </span>
-            </div>
+                <span className="flex h-5 min-w-5 items-center justify-center rounded-full border border-[#30343a] px-1 text-[11px] text-[#9da1a7]">
+                  0
+                </span>
+              </div>
+            </Link>
           </div>
 
           {/* MOBILE MENU / TABS */}

@@ -1,3 +1,4 @@
+import PlanButton from "../../../components/fitLogDetails/PlanButton";
 import { IFitData } from "@/types/fitLog.type";
 import Image from "next/image";
 import React from "react";
@@ -18,6 +19,7 @@ const Page = async ({ params }: IFitLogDetailsProps) => {
   const { id } = await params;
 
   const fitLogsData = await getFitLog();
+
   const fit = fitLogsData.find(
     (fit: IFitData) => String(fit.id) === String(id),
   );
@@ -106,27 +108,7 @@ const Page = async ({ params }: IFitLogDetailsProps) => {
             </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <button className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#d5ff58] bg-[#d5ff58] px-4 py-3 text-sm font-extrabold uppercase tracking-[0.08em] text-[#081018] shadow-[0_0_24px_rgba(213,255,88,0.24)] transition-transform duration-200 hover:scale-[1.01]">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  className="h-4 w-4"
-                >
-                  <path
-                    d="M7 7h10v10H7z"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M12 3v6M12 15v6M3 12h6M15 12h6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Add to today&apos;s plan
-              </button>
+              <PlanButton fit={fit} />
 
               <button className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/15 bg-transparent px-4 py-3 text-sm font-extrabold uppercase tracking-[0.08em] text-white transition-colors duration-200 hover:border-white/35 hover:bg-white/5">
                 <svg

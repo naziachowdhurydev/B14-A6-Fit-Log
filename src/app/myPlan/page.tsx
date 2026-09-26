@@ -1,7 +1,12 @@
-import React from "react";
+"use client";
 
-const page = () => {
+import { FitLogContext } from "../../context/FitLog.Provider";
+import React, { useContext } from "react";
+
+const MyPlan = () => {
+  const { plan } = useContext(FitLogContext) as { plan?: unknown };
+  console.log(plan, "plan");
   return <div>my plan is here</div>;
 };
 
-export default page;
+export default MyPlan;
