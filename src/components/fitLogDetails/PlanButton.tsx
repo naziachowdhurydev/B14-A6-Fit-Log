@@ -55,7 +55,7 @@ const PlanButton = ({ fit }: PlanButtonProps) => {
         ? "In your plan"
         : isPlanFull
           ? "Plan full"
-          : "Add to today&apos;s plan"}
+          : "Add to today's plan"}
     </button>
   );
 };
