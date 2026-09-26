@@ -1,6 +1,6 @@
 "use client";
 
-import { IFitData } from "@/types/fitLog.type";
+import { IFitData } from "../../types/fitLog.type";
 import React, { useContext } from "react";
 import { toast } from "react-toastify";
 import { FitLogContext } from "../../context/FitLog.Provider";

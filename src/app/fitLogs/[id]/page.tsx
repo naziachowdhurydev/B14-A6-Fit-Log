@@ -1,6 +1,6 @@
 import PlanButton from "../../../components/fitLogDetails/PlanButton";
 import SaveButton from "../../../components/fitLogDetails/SaveButton";
-import { IFitData } from "@/types/fitLog.type";
+import { IFitData } from "../../../types/fitLog.type";
 import Image from "next/image";
 import React from "react";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { IFitData } from "@/types/fitLog.type";
+import { IFitData } from "../../types/fitLog.type";
 import { FitLogContext } from "../../context/FitLog.Provider";
 import Image from "next/image";
 import Link from "next/link";

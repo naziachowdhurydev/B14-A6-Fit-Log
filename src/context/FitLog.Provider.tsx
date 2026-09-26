@@ -1,5 +1,5 @@
 "use client";
-import { IFitData } from "@/types/fitLog.type";
+import { IFitData } from "../types/fitLog.type";
 import React, { createContext, useEffect, useState } from "react";
 
 type FitLogContextType = {

@@ -1,8 +1,7 @@
-import { IFitData } from "@/types/fitLog.type";
+import { IFitData } from "../../types/fitLog.type";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import FitLog from "../home-page/FitLog";
 
 interface FitLogCardProps {
   fit: IFitData;

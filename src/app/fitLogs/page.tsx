@@ -1,6 +1,6 @@
 import React from "react";
 import FitLogCard from "../../components/shared/FitLogCard";
-import { IFitData } from "@/types/fitLog.type";
+import { IFitData } from "../../types/fitLog.type";
 
 const getFitLog = async (): Promise<IFitData[]> => {
   const res = await fetch(

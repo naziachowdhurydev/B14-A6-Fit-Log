@@ -2,7 +2,7 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import FitLogCard from "../shared/FitLogCard";
-import { IFitData } from "@/types/fitLog.type";
+import { IFitData } from "../../types/fitLog.type";
 
 const FitLog = () => {
   const [fitData, setFitData] = useState<IFitData[]>([]);
