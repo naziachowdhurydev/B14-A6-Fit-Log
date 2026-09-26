@@ -81,7 +81,7 @@ const MyPlan = () => {
   ];
 
   return (
-    <main className="min-h-screen bg-[#05090d] px-4 py-5 text-white sm:px-6 lg:px-8">
+    <main className="min-h-screen px-4 py-5 text-white sm:px-6 lg:px-8">
       <section className="mx-auto max-w-380">
         <h1 className="text-3xl font-black uppercase tracking-[-0.06em] text-white sm:text-[3rem] lg:text-[4rem]">
           MY PLAN

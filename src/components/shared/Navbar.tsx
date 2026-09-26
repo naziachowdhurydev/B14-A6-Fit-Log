@@ -14,8 +14,8 @@ const Navbar = () => {
   const { plan, save } = useContext(FitLogContext);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#05090d]/90 backdrop-blur-xl">
-      <div className="mx-auto max-w-360 px-3 sm:px-5 lg:px-8">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 backdrop-blur-3xl">
+      <div className="mx-auto container px-3 sm:px-5 lg:px-8">
         <nav className="relative flex min-h-20 items-center justify-between gap-3">
           <Link href="/" className="flex shrink-0 items-center gap-3">
             <div className="flex items-center gap-3">
@@ -33,7 +33,7 @@ const Navbar = () => {
             </div>
           </Link>
 
-          <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full bg-[#0d1218] p-1 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] md:flex">
+          <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full md:flex">
             {navItems.map((item) => (
               <Link
                 key={item.label}
@@ -56,7 +56,7 @@ const Navbar = () => {
               <div className="flex items-center gap-2 text-[13px] text-[#b5b7bb]">
                 <span>Plan</span>
 
-                <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#c8ff00] px-1 text-[11px] font-bold text-black">
+                <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#ccff00] px-1 text-[11px] font-bold text-black">
                   {plan.length}
                 </span>
               </div>
@@ -66,7 +66,7 @@ const Navbar = () => {
               <div className="flex items-center gap-2 text-[13px] text-[#b5b7bb]">
                 <span>Saved</span>
 
-                <span className="flex h-5 min-w-5 items-center justify-center rounded-full border border-[#30343a] px-1 text-[11px] text-[#9da1a7]">
+                <span className="flex h-5 min-w-5 items-center justify-center rounded-full border border-white/20 bg-transparent px-1 text-[11px] text-[#9da1a7]">
                   {save.length}
                 </span>
               </div>
