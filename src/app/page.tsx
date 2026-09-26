@@ -1,5 +1,6 @@
-import Banner from "@/components/home-page/Banner";
-import FitLog from "@/components/home-page/FitLog";
+import React from "react";
+import Banner from "../components/home-page/Banner";
+import FitLog from "../components/home-page/FitLog";
 
 export default function Home() {
   return (

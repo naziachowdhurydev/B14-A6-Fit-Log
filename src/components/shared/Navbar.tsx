@@ -1,9 +1,10 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const navItems = [
-  { label: "Workouts", active: true },
-  { label: "My Plan", active: false },
+  { label: "Workouts", active: true, href: "/fitLogs" },
+  { label: "My Plan", active: false, href: "/myPlan" },
 ];
 
 const Navbar = () => {
@@ -12,19 +13,21 @@ const Navbar = () => {
       <div className="mx-auto w-full px-3 sm:px-5 ">
         <nav className="relative flex min-h-20 items-center justify-between">
           {/* LEFT - LOGO */}
-          <div className="flex shrink-0 items-center gap-3">
-            <Image
-              src="/assets/logo.png"
-              alt="FitLog logo"
-              width={30}
-              height={30}
-              className="h-7 w-7 object-contain"
-            />
+          <Link href="/">
+            <div className="flex shrink-0 items-center gap-3">
+              <Image
+                src="/assets/logo.png"
+                alt="FitLog logo"
+                width={30}
+                height={30}
+                className="h-7 w-7 object-contain"
+              />
 
-            <span className="text-[15px] font-black uppercase tracking-[0.08em] text-[#d9f500]">
-              FITLOG
-            </span>
-          </div>
+              <span className="text-[15px] font-black uppercase tracking-[0.08em] text-[#d9f500]">
+                FITLOG
+              </span>
+            </div>{" "}
+          </Link>
 
           {/* CENTER - NAVIGATION */}
           <div
@@ -43,9 +46,10 @@ const Navbar = () => {
             "
           >
             {navItems.map((item) => (
-              <button
+              <Link
                 key={item.label}
                 type="button"
+                href={item.href}
                 className={[
                   "rounded-full px-5 py-2 text-[13px] font-medium transition-all",
                   item.active
@@ -54,7 +58,7 @@ const Navbar = () => {
                 ].join(" ")}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </div>
 
@@ -82,9 +86,10 @@ const Navbar = () => {
           {/* MOBILE MENU / TABS */}
           <div className="flex items-center gap-1 md:hidden">
             {navItems.map((item) => (
-              <button
+              <Link
                 key={item.label}
                 type="button"
+                href={item.href}
                 className={[
                   "rounded-full px-3 py-1.5 text-xs font-medium transition-all",
                   item.active
@@ -93,7 +98,7 @@ const Navbar = () => {
                 ].join(" ")}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </div>
         </nav>
