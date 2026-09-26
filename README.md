@@ -35,23 +35,21 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details. -->
 
-FitLog — Workout Tracker & Exercise Library
+Project Name => FitLog — Workout Tracker & Exercise Library
 
 Description =>
 FitLog is a workout tracking web application where users can explore different exercises and view detailed information about each workout. Users can save workouts for later, add exercises to their daily plan, and mark completed workouts as done.
-
 The project uses JSON data for the workout information and Next.js dynamic routing for individual workout details.
 
-Technologies Used
-
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-- React Toastify
-- Next.js Dynamic Routing
-- JSON
-- Context API
+Technologies Used =>
+1. Next.js
+2. React
+3. TypeScript
+4. Tailwind CSS
+5. React Toastify
+6. Next.js Dynamic Routing
+7. JSON
+8. Context API
 
 Features
 
