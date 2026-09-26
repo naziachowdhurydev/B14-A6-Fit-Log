@@ -14,7 +14,10 @@ const FitLog = () => {
 
     const loadData = async () => {
       try {
-        const res = await fetch("/fitData.json", { cache: "no-store" });
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/fitData.json`,
+          { cache: "no-store" },
+        );
         const data = await res.json();
         if (isMounted) {
           setFitData(data);
