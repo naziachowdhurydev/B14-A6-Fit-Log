@@ -8,7 +8,7 @@ const navItems = [
 
 const Navbar = () => {
   return (
-    <header className="border-b border-[#1f2a36] bg-[#070b10] text-white">
+    <header className="container mx-auto ">
       <div className="mx-auto w-full max-w-360 px-3 sm:px-5 lg:px-8">
         <nav className="relative flex min-h-20 items-center justify-between">
           {/* LEFT - LOGO */}
